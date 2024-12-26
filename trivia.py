@@ -1,8 +1,10 @@
 import csv
+import random #inclusive
 
 def main():
     values = get_csv_file('data.csv') 
-    print(values)
+    triviaQuestion=get_trivia_questions(values)
+    print(triviaQuestion)
 
 
 #populate dictionary with data.csv file
@@ -15,5 +17,10 @@ def get_csv_file(csvfile):
             value = row[1]
             Values[key] = value
     return Values
+
+def get_trivia_questions(dict):
+    key = random.choice(list(dict.keys()))  # randomly select a key
+    return key, dict[key] 
+
 
 main()
